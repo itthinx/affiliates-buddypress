@@ -161,12 +161,14 @@ class AffiliatesBuddypress_Plugin {
 		$output .= '</tr>';
 		$output .= '</table>';
 
-		submit_button( __( "Save", 'affiliates-buddypress' ) );
+		$output .= get_submit_button( __( "Save", 'affiliates-buddypress' ) );
 		settings_fields( 'affiliates-buddypress' );
 
 		$output .= '</form>';
 		$output .= '</div>';
 		$output .= '</div>';
+		
+		echo $output;
 	}
 
 }
