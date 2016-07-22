@@ -57,11 +57,36 @@ class AffiliatesBuddypress_Plugin {
 
 	public static function wp_init() {
 
+		$result = true;
+		
+		$active_plugins = get_option( 'active_plugins', array() );
+		if ( is_multisite() ) {
+			$active_sitewide_plugins = get_site_option( 'active_sitewide_plugins', array() );
+			$active_sitewide_plugins = array_keys( $active_sitewide_plugins );
+			$active_plugins = array_merge( $active_plugins, $active_sitewide_plugins );
+		}
+		
+		// required plugins
+		$affiliates_is_active =
+		in_array( 'affiliates/affiliates.php', $active_plugins ) ||
+		in_array( 'affiliates-pro/affiliates-pro.php', $active_plugins ) ||
+		in_array( 'affiliates-enterprise/affiliates-enterprise.php', $active_plugins );
+		if ( !$affiliates_is_active ) {
+			self::$notices[] =
+			"<div class='error'>" .
+			__( 'The <strong>Affiliates Buddypress Integration</strong> plugin requires an appropriate Affiliates plugin: <a href="http://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>, <a href="http://www.itthinx.com/plugins/affiliates-pro" target="_blank">Affiliates Pro</a> or <a href="http://www.itthinx.com/plugins/affiliates-enterprise" target="_blank">Affiliates Enterprise</a>.', 'affiliates-buddypress' ) .
+			"</div>";
+		}
+		if ( !$affiliates_is_active ) {
+			$result = false;
+		}
+		if ( $result ) {
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 
 			if ( !class_exists( "AffiliatesBuddypress" ) ) {
 				include_once 'core/class-affiliates-buddypress.php';
 			}
+		}
 	}
 
 	/**
