@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-22 20:32+0200\n"
+"PO-Revision-Date: 2016-07-22 20:36+0200\n"
+"Last-Translator: eggemplo <eggemplo@gmail.com>\n"
+"Language-Team: eggemplo <info@eggemplo.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../affiliates-buddypress.php:89 ../affiliates-buddypress.php:90
+msgid "Buddypress"
+msgstr "Buddypress"
+
+#: ../affiliates-buddypress.php:103
+msgid "Buddypress Integration"
+msgstr "Buddypress Integración"
+
+#: ../affiliates-buddypress.php:108
+msgid "Settings saved"
+msgstr "Ajustes guardados"
+
+#: ../affiliates-buddypress.php:124
+msgid "Select your Affiliate Area page:"
+msgstr "Seleccione su página de Área de Afiliados:"
+
+#: ../affiliates-buddypress.php:132
+msgid "It seems that you do not have any pages set up for your affiliates yet."
+msgstr "Parece que aún no tiene configurada ninguna página para sus afiliados."
+
+#: ../affiliates-buddypress.php:135
+msgid ""
+"You can use the page generation option to create the default affiliate area "
+"for your affiliates."
+msgstr ""
+"Puede usar la opción de generación de página para crear el área de afiliados "
+"por defecto para sus afiliados."
+
+#: ../affiliates-buddypress.php:164
+msgid "Save"
+msgstr "Guardar"
+
+#: ../core/class-affiliates-buddypress.php:35
+#: ../core/class-affiliates-buddypress.php:54
+msgid "Affiliate Area"
+msgstr "Área de Afiliado"
+
+#: ../core/class-affiliates-buddypress.php:63
+msgid "It seems that there are not any pages set up for the affiliates yet."
+msgstr "Parece que no hay configurada ninguna página para sus afiliados."
+
+#~ msgid "Role Pricing"
+#~ msgstr "Role Pricing"
+
+#~ msgid ""
+#~ "Leave empty if no custom role discount should be applied to this product "
+#~ "(default setting)."
+#~ msgstr ""
+#~ "Deja en blanco si no son aplicables descuentos para este producto (se "
+#~ "aplicarán descuentos por defecto)."
+
+#~ msgid "Was:"
+#~ msgstr "Antes:"
+
+#~ msgid " Now:"
+#~ msgstr "Ahora:"
+
+#~ msgid "Woocommerce Role Pricing"
+#~ msgstr "Woocommerce Role Pricing"
+
+#~ msgid ""
+#~ "Leave empty if no custom role discount should be applied to this category."
+#~ msgstr ""
+#~ "Deja en blanco si no son aplicables descuentos para esta categoría (se "
+#~ "aplicarán descuentos por defecto)."
+
+#~ msgid ""
+#~ "The <strong>Woocommerce Role Pricing</strong> plugin requires the <a href="
+#~ "\"http://wordpress.org/extend/plugins/woocommerce\" target=\"_blank"
+#~ "\">Woocommerce</a> plugin to be activated."
+#~ msgstr ""
+#~ "<strong>Woocommerce Role Pricing</strong> plugin requiere <a href="
+#~ "\"http://wordpress.org/extend/plugins/woocommerce\" target=\"_blank"
+#~ "\">Woocommerce</a> para ser activado."
+
+#~ msgid "Saved"
+#~ msgstr "Guardado"
+
+#~ msgid "Products discount method:"
+#~ msgstr "Método de descuento:"
+
+#~ msgid "Apply to:"
+#~ msgstr "Aplicar a:"
+
+#~ msgid "If in several roles:"
+#~ msgstr "Si tiene varios roles:"
+
+#~ msgid "Display original prices:"
+#~ msgstr "Mostrar precios originales:"
+
+#~ msgid "Roles:"
+#~ msgstr "Roles:"
+
+#~ msgid ""
+#~ "The <strong>Woocommerce Group Pricing</strong> plugin requires the <a "
+#~ "href=\"http://wordpress.org/extend/plugins/groups\" target=\"_blank"
+#~ "\">Groups</a> plugin to be activated."
+#~ msgstr ""
+#~ "El plugin <strong>Woocommerce Group Pricing</strong> requiere <a href="
+#~ "\"http://wordpress.org/extend/plugins/groups\" target=\"_blank\">Groups</"
+#~ "a> para funcionar."
+
+#~ msgid "Groups:"
+#~ msgstr "Grupos:"
+
+#~ msgid "eShop2MailChimp"
+#~ msgstr "eShop2MailChimp"
+
+#~ msgid "eShop 2 MailChimp"
+#~ msgstr "eShop 2 MailChimp"
+
+#~ msgid "API Key:"
+#~ msgstr "API Key:"
+
+#~ msgid ""
+#~ "MailChimp API KEY. You can get it in MailChimp: Account -> API Keys & "
+#~ "Authorized Apps "
+#~ msgstr ""
+#~ "API KEY de Mailchimp. Puede conseguirla dentro de tu cuenta de Mailchimp: "
+#~ "Mi cuenta -> API Keys"
+
+#~ msgid "List name:"
+#~ msgstr "Nombre de la lista:"
+
+#~ msgid "Subgroups name:"
+#~ msgstr "Nombre de los subgrupos:"
+
+#~ msgid "Comma separated subgroups."
+#~ msgstr "Subgrupos separados por comas."
+
+#~ msgid "Opt-in"
+#~ msgstr "Opt-in"
+
+#~ msgid "Signup form title:"
+#~ msgstr "Título del formulario:"
+
+#~ msgid "Newsletter"
+#~ msgstr "Boletín de noticias"
+
+#~ msgid "Signup form text:"
+#~ msgstr "Texto del formulario:"
+
+#~ msgid "Subscribe me to newsletter."
+#~ msgstr "Suscríbeme al boletín de noticias."
+
+#~ msgid "Opt-in confirmation email:"
+#~ msgstr "Opt-in email de confirmación:"
+
+#~ msgid "YES"
+#~ msgstr "SI"
+
+#~ msgid "NO"
+#~ msgstr "NO"
+
+#~ msgid ""
+#~ "Control whether a double opt-in confirmation message is sent. Abusing "
+#~ "this may cause your mailchimp account to be suspended."
+#~ msgstr ""
+#~ "Un mensaje de confirmación será enviado a los usuarios. Si abusa de no "
+#~ "usar confirmaciones, su cuenta de mailchimp puede ser suspendida por "
+#~ "considerarle spam."
+
+#~ msgid "Subscribed"
+#~ msgstr "Suscrito"
+
+#~ msgid "Not subscribed"
+#~ msgstr "No suscrito"
+
+#~ msgid "Groups to MailChimp"
+#~ msgstr "Groups to MailChimp"
+
+#~ msgid "Need confirm:"
+#~ msgstr "Necesita confirmación:"
+
+#~ msgid "Synchronize"
+#~ msgstr "Sincronizar"
+
+#~ msgid ""
+#~ "Use this for synchronize existing users in website with mailchimp. If the "
+#~ "user has not subscribed, then he will not be synchronized."
+#~ msgstr ""
+#~ "Úsalo para sincronizar los usuarios ya existentes con Mailchimp. Si el "
+#~ "usuario no se ha suscrito, entonces no será sincronizado."
+
+#~ msgid "Subscribe me to newsletter"
+#~ msgstr "Suscríbeme al boletín de noticias"
+
+#~ msgid "Use roles as subgroups:"
+#~ msgstr "Usar roles como subgrupos:"
+
+#~ msgid ""
+#~ "Creates as many subgroups as there are roles (if checked, \"Subgroup name"
+#~ "\" is ignored)."
+#~ msgstr ""
+#~ "Crea tantos subgrupos como roles tienen los usuarios (la opción de "
+#~ "\"Nombre del subgrupo\" será ignorada)."
