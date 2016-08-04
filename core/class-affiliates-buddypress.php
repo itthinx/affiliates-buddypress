@@ -30,8 +30,9 @@ class Affiliates_BuddyPress {
 
 	public static function bp_setup_nav() {
 		global $bp;
-		 
-		bp_core_new_nav_item( array(
+
+		bp_core_new_nav_item(
+			array(
 				'name'              => __( 'Affiliate Area', 'affiliates-buddypress' ),
 				'slug'              => 'affiliate-area',
 				'parent_url'        => trailingslashit( bp_displayed_user_domain() . $bp->profile->slug ),
@@ -40,7 +41,7 @@ class Affiliates_BuddyPress {
 				'position'          => intval( apply_filters( 'affiliates_buddypress_nav_item_position', 30 ) ),
 				'user_has_access'   => bp_is_my_profile(),
 				'default_subnav_slug' => 'affiliate-area'
-			) 
+			)
 		);
 	}
 
