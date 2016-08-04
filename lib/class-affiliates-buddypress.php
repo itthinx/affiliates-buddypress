@@ -90,8 +90,6 @@ class Affiliates_BuddyPress {
 		if ( $page_id ) {
 			$post = get_post( $page_id );
 			echo $post->post_content;
-		} else {
-			echo __( 'It seems that there are not any pages set up for the affiliates yet.', 'affiliates-buddypress' );
 		}
 	}
 
