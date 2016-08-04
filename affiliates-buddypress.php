@@ -22,7 +22,7 @@
  *
  * Plugin Name: Affiliates BuddyPress
  * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
- * Description: Affiliates integration with BuddyPress
+ * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
  * Version: 1.0.0
  * Author: itthinx
  * Author URI: http://www.itthinx.com
@@ -198,6 +198,9 @@ class Affiliates_BuddyPress_Plugin {
 			}
 			$selected_page_id = get_option( 'affiliates-buddypress-page', null );
 
+			$output .= '<label>';
+			$output .= __( 'The page that provides the content for the Affiliates BuddyPress profile section.', 'affiliates-buddypress' );
+			$output .= ' ';
 			$output .= '<select name="affiliates-buddypress-page">';
 			$post_select_options = '<option value="">--</option>';
 			foreach( $post_ids as $post_id ) {
@@ -215,16 +218,21 @@ class Affiliates_BuddyPress_Plugin {
 			}
 			$output .= $post_select_options;
 			$output .= '</select>';
+			$output .= '</label>';
 		}
 		$output .= '</td>';
 		$output .= '</tr>';
 		$output .= '<tr>';
 		$output .= '<th scope="row"><strong>' . __( 'Position', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
+		$output .= '<label>';
+		$output .= __( 'Profile item position', 'affiliates-buddypress' );
+		$output .= ' ';
 		$output .= sprintf(
 			'<input name="affiliates-buddypress-page-position" type="text" value="%d" />',
 			intval( get_option( 'affiliates-buddypress-page-position', Affiliates_BuddyPress::NAV_ITEM_POSITION ) )
 		);
+		$output .= '</label>';
 		$output .= '</td>';
 		$output .= '</tr>';
 		$output .= '</table>';
