@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-22 20:32+0200\n"
-"PO-Revision-Date: 2016-07-22 20:36+0200\n"
+"PO-Revision-Date: 2016-08-04 14:15+0200\n"
 "Last-Translator: eggemplo <eggemplo@gmail.com>\n"
 "Language-Team: eggemplo <info@eggemplo.com>\n"
 "Language: es_ES\n"
@@ -51,7 +51,7 @@ msgstr "Guardar"
 #: ../core/class-affiliates-buddypress.php:35
 #: ../core/class-affiliates-buddypress.php:54
 msgid "Affiliate Area"
-msgstr "Área de Afiliado"
+msgstr "Área de Afiliados"
 
 #: ../core/class-affiliates-buddypress.php:63
 msgid "It seems that there are not any pages set up for the affiliates yet."
