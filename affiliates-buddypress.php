@@ -149,6 +149,14 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= __( 'BuddyPress Integration', 'affiliates-buddypress' );
 		$output .= '</h1>';
 
+		$output .= '<p class="description">';
+		$output .= __( 'Here you can select the page that should be displayed in the BuddyPress user profiles under an additional <em>Affiliates</em> section.', 'affiliates-buddypress' );
+		$output .= ' ';
+		$output .= __( 'If you have already generated an affiliate area, you can choose that page.', 'affiliates-buddypress' );
+		$output .= ' ';
+		$output .= __( 'Alternatively, you can use any customized page that is using at least one <em>Affiliates</em> shortcode.', 'affiliates-buddypress' );
+		$output .= '</p>';
+
 		if ( isset( $_POST['submit'] ) ) {
 			if ( wp_verify_nonce( $_POST['affiliates-buddypress-nonce'], 'save' ) ) { 
 
