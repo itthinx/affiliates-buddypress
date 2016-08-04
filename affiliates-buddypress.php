@@ -14,7 +14,9 @@
  *
  * This header and all notices must be kept intact.
  *
- * @author Karim Rahimpur
+ * @author itthinx
+ * @author eggemplo
+ * @author proaktion
  * @package affiliates-buddypress
  * @since affiliates-buddypress 1.0.0
  *

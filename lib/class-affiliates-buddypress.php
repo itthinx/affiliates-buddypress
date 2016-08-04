@@ -2,7 +2,7 @@
 /**
  * class-affiliates-buddypress.php
  *
- * Copyright (c) 2010-2016 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -14,7 +14,9 @@
  *
  * This header and all notices must be kept intact.
  *
- * @author Karim Rahimpur
+ * @author itthinx
+ * @author eggemplo
+ * @author proaktion
  * @package affiliates-buddypress
  * @since affiliates-buddypress 1.0.0
  */
