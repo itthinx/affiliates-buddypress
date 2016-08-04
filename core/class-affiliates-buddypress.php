@@ -19,6 +19,10 @@
  * @since affiliates-buddypress 1.0.0
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Affiliates-BuddyPress integration.
  */

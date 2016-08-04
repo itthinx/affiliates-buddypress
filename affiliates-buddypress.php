@@ -30,6 +30,10 @@
  * License: GPLv3
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
 
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
