@@ -45,8 +45,15 @@ define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugin_dir_url( AFFILIATES_BUDDYPRES
  */
 class Affiliates_BuddyPress_Plugin {
 
+	/**
+	 * Holds admin notices if any.
+	 * @var array of string
+	 */
 	private static $notices = array();
 
+	/**
+	 * Loads translations and adds actions.
+	 */
 	public static function init() {
 
 		load_plugin_textdomain( 'affiliates-buddypress', null, AFFILIATES_BUDDYPRESS_PLUGIN_NAME . '/languages' );
@@ -58,6 +65,10 @@ class Affiliates_BuddyPress_Plugin {
 
 	}
 
+	/**
+	 * Hooked on the init action. Checks required plugins are active and boots the
+	 * integration class.
+	 */
 	public static function wp_init() {
 
 		$result = true;
@@ -76,9 +87,9 @@ class Affiliates_BuddyPress_Plugin {
 		in_array( 'affiliates-enterprise/affiliates-enterprise.php', $active_plugins );
 		if ( !$affiliates_is_active ) {
 			self::$notices[] =
-			"<div class='error'>" .
+			'<div class="error">' .
 			__( 'The <strong>Affiliates BuddyPress Integration</strong> plugin requires an appropriate Affiliates plugin: <a href="http://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>, <a href="http://www.itthinx.com/plugins/affiliates-pro" target="_blank">Affiliates Pro</a> or <a href="http://www.itthinx.com/plugins/affiliates-enterprise" target="_blank">Affiliates Enterprise</a>.', 'affiliates-buddypress' ) .
-			"</div>";
+			'</div>';
 		}
 		if ( !$affiliates_is_active ) {
 			$result = false;
@@ -86,7 +97,7 @@ class Affiliates_BuddyPress_Plugin {
 		if ( $result ) {
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 
-			if ( !class_exists( "AffiliatesBuddyPress" ) ) {
+			if ( !class_exists( 'AffiliatesBuddyPress' ) ) {
 				include_once 'core/class-affiliates-buddypress.php';
 			}
 		}
@@ -97,9 +108,12 @@ class Affiliates_BuddyPress_Plugin {
 	 */
 	public static function enqueue_scripts() {
 		wp_register_style( 'affbp-admin-styles', AFFILIATES_BUDDYPRESS_PLUGIN_URL . 'css/admin-styles.css' );
-		wp_enqueue_style ('affbp-admin-styles');
+		wp_enqueue_style( 'affbp-admin-styles' );
 	}
 
+	/**
+	 * Hooked on admin_notices and prints admin notices if any.
+	 */
 	public static function admin_notices() { 
 		if ( !empty( self::$notices ) ) {
 			foreach ( self::$notices as $notice ) {
@@ -127,11 +141,11 @@ class Affiliates_BuddyPress_Plugin {
 
 		$output = '';
 		$output .= '<div class="wrap">';
-		$output .= '<h2>';
+		$output .= '<h1>';
 		$output .= __( 'BuddyPress Integration', 'affiliates-buddypress' );
-		$output .= '</h2>';
+		$output .= '</h1>';
 
-		$alert = "";
+		$alert = '';
 		if ( isset( $_POST['submit'] ) ) {
 			$alert = __("Settings saved", 'affiliates-buddypress');
 
@@ -141,7 +155,7 @@ class Affiliates_BuddyPress_Plugin {
 			}
 		}
 
-		if ($alert != "") {
+		if ( $alert != '' ) {
 			$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">' . $alert . '</div>';
 		}
 
@@ -176,10 +190,10 @@ class Affiliates_BuddyPress_Plugin {
 				}
 				$post_title = get_the_title( $post_id );
 				$post_select_options .= sprintf(
-						'<option value="%d" %s >%s</option>',
-						intval( $post_id ),
-						$selected,
-						esc_html( $post_title )
+					'<option value="%d" %s >%s</option>',
+					intval( $post_id ),
+					$selected,
+					esc_html( $post_title )
 				);
 			}
 			$post_select_options .= '</select>';
@@ -189,7 +203,7 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '</tr>';
 		$output .= '</table>';
 
-		$output .= get_submit_button( __( "Save", 'affiliates-buddypress' ) );
+		$output .= get_submit_button( __( 'Save', 'affiliates-buddypress' ) );
 		settings_fields( 'affiliates-buddypress' );
 
 		$output .= '</form>';
