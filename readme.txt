@@ -11,7 +11,7 @@ Affiliates integration with BuddyPress.
 
 == Description ==
 
-[Affiliates](https://wordpress.org/plugins/affiliates/) integration with [BuddyPress](https://wordpress.org/plugins/buddypress/) that allows to display affiliate content in the BuddyPress user profile.
+[Affiliates](https://wordpress.org/plugins/affiliates/) integration with [BuddyPress](https://wordpress.org/plugins/buddypress/) that allows to display affiliate content in the BuddyPress user profile - both plugins are required to make sensible use of this integration.
 
 You would use this plugin to display the page content of a specific page intended to be seen by affiliates, or by potential affiliates who would like to sign up, and have it integrated within the user profile section that BuddyPress provides.
 
