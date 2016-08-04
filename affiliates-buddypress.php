@@ -95,7 +95,7 @@ class Affiliates_BuddyPress_Plugin {
 		if ( $result ) {
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 
-			if ( !class_exists( 'AffiliatesBuddyPress' ) ) {
+			if ( !class_exists( 'Affiliates_BuddyPress' ) ) {
 				require_once 'core/class-affiliates-buddypress.php';
 			}
 		}
