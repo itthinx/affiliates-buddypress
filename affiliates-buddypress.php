@@ -19,7 +19,7 @@
  * @since affiliates-buddypress 1.0.0
  *
  * Plugin Name: Affiliates BuddyPress
- * Plugin URI: http://www.itthinx.com
+ * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
  * Description: Affiliates integration with BuddyPress
  * Version: 1.0.0
  * Author: itthinx
@@ -35,14 +35,8 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
-
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
-
-if ( !defined( 'AFFILIATES_BUDDYPRESS_CORE_DIR' ) ) {
-	define( 'AFFILIATES_BUDDYPRESS_CORE_DIR', WP_PLUGIN_DIR . '/affiliates-buddypress/core' );
-}
-
-define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugin_dir_url( AFFILIATES_BUDDYPRESS_FILE ) );
+define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugins_url( 'affiliates-buddypress' ) );
 
 /**
  * Plugin class.
@@ -102,7 +96,7 @@ class Affiliates_BuddyPress_Plugin {
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 
 			if ( !class_exists( 'AffiliatesBuddyPress' ) ) {
-				include_once 'core/class-affiliates-buddypress.php';
+				require_once 'core/class-affiliates-buddypress.php';
 			}
 		}
 	}
