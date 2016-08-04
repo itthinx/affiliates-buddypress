@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid   ""
+msgstr  "Project-Id-Version: PACKAGE VERSION\n"
+        "Report-Msgid-Bugs-To: \n"
+        "POT-Creation-Date: 2016-08-04 22:28+0200\n"
+        "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+        "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+        "Language-Team: LANGUAGE <LL@li.org>\n"
+        "Language: \n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: text/plain; charset=CHARSET\n"
+        "Content-Transfer-Encoding: 8bit\n"
+
+#: affiliates-buddypress.php:143
+msgid   "Access denied."
+msgstr  ""
+
+#: affiliates-buddypress.php:157
+msgid   "Alternatively, you can use any customized page that is using at "
+        "least one <em>Affiliates</em> shortcode."
+msgstr  ""
+
+#: affiliates-buddypress.php:131 affiliates-buddypress.php:132
+msgid   "BuddyPress"
+msgstr  ""
+
+#: affiliates-buddypress.php:149
+msgid   "BuddyPress Integration"
+msgstr  ""
+
+#: affiliates-buddypress.php:153
+msgid   "Here you can select the page that should be displayed in the "
+        "BuddyPress user profiles under an additional <em>Affiliates</em> "
+        "section."
+msgstr  ""
+
+#: affiliates-buddypress.php:155
+msgid   "If you have already generated an affiliate area, you can choose that "
+        "page."
+msgstr  ""
+
+#: affiliates-buddypress.php:190
+msgid   "It seems that you do not have any pages set up for your affiliates "
+        "yet."
+msgstr  ""
+
+#: affiliates-buddypress.php:182
+msgid   "Page"
+msgstr  ""
+
+#: affiliates-buddypress.php:226
+msgid   "Position"
+msgstr  ""
+
+#: affiliates-buddypress.php:229
+msgid   "Profile item position"
+msgstr  ""
+
+#: affiliates-buddypress.php:240
+msgid   "Save"
+msgstr  ""
+
+#: affiliates-buddypress.php:173
+msgid   "Settings saved"
+msgstr  ""
+
+#: affiliates-buddypress.php:91
+msgid   "The <strong>Affiliates BuddyPress Integration</strong> plugin "
+        "requires an appropriate Affiliates plugin: <a href=\"http://www."
+        "itthinx.com/plugins/affiliates\" target=\"_blank\">Affiliates</a>, "
+        "<a href=\"http://www.itthinx.com/plugins/affiliates-pro\" target="
+        "\"_blank\">Affiliates Pro</a> or <a href=\"http://www.itthinx.com/"
+        "plugins/affiliates-enterprise\" target=\"_blank\">Affiliates "
+        "Enterprise</a>."
+msgstr  ""
+
+#: affiliates-buddypress.php:202
+msgid   "The page that provides the content for the Affiliates BuddyPress "
+        "profile section."
+msgstr  ""
+
+#: affiliates-buddypress.php:193
+msgid   "You can use the page generation option to create the default "
+        "affiliate area for your affiliates."
+msgstr  ""
