@@ -20,14 +20,20 @@
  */
 
 /**
- * Affiliates_BuddyPress class
+ * Affiliates-BuddyPress integration.
  */
 class Affiliates_BuddyPress {
 
+	/**
+	 * Adds an action hook on bp_setup_nav.
+	 */
 	public static function init() {
 		add_action( 'bp_setup_nav', array( __CLASS__, 'bp_setup_nav' ), 100 );
 	}
 
+	/**
+	 * Adds a BP navigation item for the Affiliate Area.
+	 */
 	public static function bp_setup_nav() {
 		global $bp;
 
@@ -45,16 +51,25 @@ class Affiliates_BuddyPress {
 		);
 	}
 
+	/**
+	 * Hooks on BP template actions and loads core template.
+	 */
 	public static function add_tab_screen() {
 		add_action( 'bp_template_title', array( __CLASS__, 'bp_template_title' ) );
 		add_action( 'bp_template_content', array( __CLASS__, 'bp_template_content' ) );
 		bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 	}
 
+	/**
+	 * Prints the Affiliate Area's template title.
+	 */
 	public static function bp_template_title() {
 		echo __( 'Affiliate Area', 'affiliates-buddypress' );
 	}
 
+	/**
+	 * Prints the contents of the affiliate area page.
+	 */
 	public static function bp_template_content() {
 		$page_id = get_option( 'affiliates-buddypress-page', null );
 		if ( $page_id ) {
