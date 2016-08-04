@@ -37,10 +37,13 @@ class Affiliates_BuddyPress {
 	const NAV_ITEM_POSITION = 30;
 
 	/**
-	 * Adds an action hook on bp_setup_nav.
+	 * Adds an action hook on bp_setup_nav to register our profile item.
 	 */
 	public static function init() {
-		add_action( 'bp_setup_nav', array( __CLASS__, 'bp_setup_nav' ), 100 );
+		$page_id = get_option( 'affiliates-buddypress-page', null );
+		if ( $page_id ) {
+			add_action( 'bp_setup_nav', array( __CLASS__, 'bp_setup_nav' ), 100 );
+		}
 	}
 
 	/**
@@ -51,14 +54,14 @@ class Affiliates_BuddyPress {
 
 		bp_core_new_nav_item(
 			array(
-				'name'              => __( 'Affiliate Area', 'affiliates-buddypress' ),
-				'slug'              => 'affiliate-area',
-				'parent_url'        => trailingslashit( bp_displayed_user_domain() . $bp->profile->slug ),
-				'parent_slug'       => $bp->profile->slug,
-				'screen_function'   => array( __CLASS__, 'add_tab_screen' ),
-				'position'          => intval( apply_filters( 'affiliates_buddypress_nav_item_position', self::NAV_ITEM_POSITION ) ),
-				'user_has_access'   => bp_is_my_profile(),
-				'default_subnav_slug' => 'affiliate-area'
+				'name'                => __( 'Affiliate Area', 'affiliates-buddypress' ),
+				'slug'                => 'affiliates',
+				'parent_url'          => trailingslashit( bp_displayed_user_domain() . $bp->profile->slug ),
+				'parent_slug'         => $bp->profile->slug,
+				'screen_function'     => array( __CLASS__, 'add_tab_screen' ),
+				'position'            => intval( apply_filters( 'affiliates_buddypress_nav_item_position', self::NAV_ITEM_POSITION ) ),
+				'user_has_access'     => bp_is_my_profile(),
+				'default_subnav_slug' => 'affiliates'
 			)
 		);
 	}

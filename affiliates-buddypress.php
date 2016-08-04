@@ -139,6 +139,10 @@ class Affiliates_BuddyPress_Plugin {
 	public static function buddypress_admin_page () {
 		global $wpdb;
 
+		if ( !current_user_can( AFFILIATES_ADMINISTER_AFFILIATES ) ) {
+			wp_die( __( 'Access denied.', 'affiliates' ) );
+		}
+
 		$output = '';
 		$output .= '<div class="wrap">';
 		$output .= '<h1>';
@@ -147,16 +151,19 @@ class Affiliates_BuddyPress_Plugin {
 
 		$alert = '';
 		if ( isset( $_POST['submit'] ) ) {
-			$alert = __("Settings saved", 'affiliates-buddypress');
+			if ( wp_verify_nonce( $_POST['affiliates-buddypress-nonce'], 'save' ) ) { 
 
-			delete_option( 'affiliates-buddypress-page' );
-			if ( !empty( $_POST['affiliates-buddypress-page'] ) ) {
-				add_option( "affiliates-buddypress-page",$_POST[ "affiliates-buddypress-page" ] );
+				delete_option( 'affiliates-buddypress-page' );
+				if ( !empty( $_POST['affiliates-buddypress-page'] ) ) {
+					add_option( 'affiliates-buddypress-page', $_POST[ 'affiliates-buddypress-page' ] );
+				}
+
+				if ( $alert != '' ) {
+					$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">';
+					$output .= __( 'Settings saved', 'affiliates-buddypress' );
+					$output .= '</div>';
+				}
 			}
-		}
-
-		if ( $alert != '' ) {
-			$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">' . $alert . '</div>';
 		}
 
 		$output .= '<div class="wrap" style="border: 1px solid #ccc; padding:10px;">';
@@ -182,7 +189,8 @@ class Affiliates_BuddyPress_Plugin {
 			}
 			$selected_page_id = get_option( 'affiliates-buddypress-page', null );
 
-			$post_select_options = '<select name="affiliates-buddypress-page">';
+			$output .= '<select name="affiliates-buddypress-page">';
+			$post_select_options = '<option value="">--</option>';
 			foreach( $post_ids as $post_id ) {
 				$selected = '';
 				if ( $post_id == $selected_page_id ) {
@@ -196,15 +204,17 @@ class Affiliates_BuddyPress_Plugin {
 					esc_html( $post_title )
 				);
 			}
-			$post_select_options .= '</select>';
 			$output .= $post_select_options;
+			$output .= '</select>';
 		}
 		$output .= '</td>';
 		$output .= '</tr>';
 		$output .= '</table>';
 
 		$output .= get_submit_button( __( 'Save', 'affiliates-buddypress' ) );
-		settings_fields( 'affiliates-buddypress' );
+// 		settings_fields( 'affiliates-buddypress' );
+
+		$output .= wp_nonce_field( 'save', 'affiliates-buddypress-nonce', true, false );
 
 		$output .= '</form>';
 		$output .= '</div>';
