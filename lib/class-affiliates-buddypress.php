@@ -31,6 +31,12 @@ if ( !defined( 'ABSPATH' ) ) {
 class Affiliates_BuddyPress {
 
 	/**
+	 * Position of our item in the navigation menu.
+	 * @var int
+	 */
+	const NAV_ITEM_POSITION = 30;
+
+	/**
 	 * Adds an action hook on bp_setup_nav.
 	 */
 	public static function init() {
@@ -50,7 +56,7 @@ class Affiliates_BuddyPress {
 				'parent_url'        => trailingslashit( bp_displayed_user_domain() . $bp->profile->slug ),
 				'parent_slug'       => $bp->profile->slug,
 				'screen_function'   => array( __CLASS__, 'add_tab_screen' ),
-				'position'          => intval( apply_filters( 'affiliates_buddypress_nav_item_position', 30 ) ),
+				'position'          => intval( apply_filters( 'affiliates_buddypress_nav_item_position', self::NAV_ITEM_POSITION ) ),
 				'user_has_access'   => bp_is_my_profile(),
 				'default_subnav_slug' => 'affiliate-area'
 			)
