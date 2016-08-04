@@ -17,12 +17,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../affiliates-buddypress.php:89 ../affiliates-buddypress.php:90
-msgid "Buddypress"
-msgstr "Buddypress"
+msgid "BuddyPress"
+msgstr "BuddyPress"
 
 #: ../affiliates-buddypress.php:103
-msgid "Buddypress Integration"
-msgstr "Buddypress Integración"
+msgid "BuddyPress Integration"
+msgstr "BuddyPress Integración"
 
 #: ../affiliates-buddypress.php:108
 msgid "Settings saved"

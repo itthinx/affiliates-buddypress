@@ -2,7 +2,7 @@
 /**
  * affiliates-buddypress.php
  *
- * Copyright (c) 2010-2016 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -18,10 +18,10 @@
  * @package affiliates-buddypress
  * @since affiliates-buddypress 1.0.0
  *
- * Plugin Name: Affiliates Buddypress
+ * Plugin Name: Affiliates BuddyPress
  * Plugin URI: http://www.itthinx.com
- * Description: Integrates Affiliates plugin with BuddyPress
- * Version: 1.0
+ * Description: Affiliates integration with BuddyPress
+ * Version: 1.0.0
  * Author: itthinx
  * Author URI: http://www.itthinx.com
  * Donate-Link: http://www.itthinx.com
@@ -40,7 +40,10 @@ if ( !defined( 'AFFILIATES_BUDDYPRESS_CORE_DIR' ) ) {
 
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugin_dir_url( AFFILIATES_BUDDYPRESS_FILE ) );
 
-class AffiliatesBuddypress_Plugin {
+/**
+ * Plugin class.
+ */
+class Affiliates_BuddyPress_Plugin {
 
 	private static $notices = array();
 
@@ -51,21 +54,21 @@ class AffiliatesBuddypress_Plugin {
 		add_action( 'init', array( __CLASS__, 'wp_init' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 
-		add_action('admin_head', array( __CLASS__, 'enqueue_scripts' ) );
+		add_action( 'admin_head', array( __CLASS__, 'enqueue_scripts' ) );
 
 	}
 
 	public static function wp_init() {
 
 		$result = true;
-		
+
 		$active_plugins = get_option( 'active_plugins', array() );
 		if ( is_multisite() ) {
 			$active_sitewide_plugins = get_site_option( 'active_sitewide_plugins', array() );
 			$active_sitewide_plugins = array_keys( $active_sitewide_plugins );
 			$active_plugins = array_merge( $active_plugins, $active_sitewide_plugins );
 		}
-		
+
 		// required plugins
 		$affiliates_is_active =
 		in_array( 'affiliates/affiliates.php', $active_plugins ) ||
@@ -74,7 +77,7 @@ class AffiliatesBuddypress_Plugin {
 		if ( !$affiliates_is_active ) {
 			self::$notices[] =
 			"<div class='error'>" .
-			__( 'The <strong>Affiliates Buddypress Integration</strong> plugin requires an appropriate Affiliates plugin: <a href="http://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>, <a href="http://www.itthinx.com/plugins/affiliates-pro" target="_blank">Affiliates Pro</a> or <a href="http://www.itthinx.com/plugins/affiliates-enterprise" target="_blank">Affiliates Enterprise</a>.', 'affiliates-buddypress' ) .
+			__( 'The <strong>Affiliates BuddyPress Integration</strong> plugin requires an appropriate Affiliates plugin: <a href="http://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>, <a href="http://www.itthinx.com/plugins/affiliates-pro" target="_blank">Affiliates Pro</a> or <a href="http://www.itthinx.com/plugins/affiliates-enterprise" target="_blank">Affiliates Enterprise</a>.', 'affiliates-buddypress' ) .
 			"</div>";
 		}
 		if ( !$affiliates_is_active ) {
@@ -83,7 +86,7 @@ class AffiliatesBuddypress_Plugin {
 		if ( $result ) {
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ), 40 );
 
-			if ( !class_exists( "AffiliatesBuddypress" ) ) {
+			if ( !class_exists( "AffiliatesBuddyPress" ) ) {
 				include_once 'core/class-affiliates-buddypress.php';
 			}
 		}
@@ -110,12 +113,12 @@ class AffiliatesBuddypress_Plugin {
 	 */
 	public static function admin_menu() {
 		$admin_page = add_submenu_page(
-				'affiliates-admin',
-				__( 'Buddypress', 'affiliates-buddypress' ),
-				__( 'Buddypress', 'affiliates-buddypress' ),
-				AFFILIATES_ADMINISTER_AFFILIATES,
-				'affiliates-admin-buddypress',
-				array( __CLASS__, 'buddypress_admin_page' )
+			'affiliates-admin',
+			__( 'BuddyPress', 'affiliates-buddypress' ),
+			__( 'BuddyPress', 'affiliates-buddypress' ),
+			AFFILIATES_ADMINISTER_AFFILIATES,
+			'affiliates-admin-buddypress',
+			array( __CLASS__, 'buddypress_admin_page' )
 		);
 	}
 
@@ -125,30 +128,30 @@ class AffiliatesBuddypress_Plugin {
 		$output = '';
 		$output .= '<div class="wrap">';
 		$output .= '<h2>';
-		$output .= __( 'Buddypress Integration', 'affiliates-buddypress' );
+		$output .= __( 'BuddyPress Integration', 'affiliates-buddypress' );
 		$output .= '</h2>';
-		
+
 		$alert = "";
 		if ( isset( $_POST['submit'] ) ) {
 			$alert = __("Settings saved", 'affiliates-buddypress');
-	
+
 			delete_option( 'affiliates-buddypress-page' );
 			if ( !empty( $_POST['affiliates-buddypress-page'] ) ) {
 				add_option( "affiliates-buddypress-page",$_POST[ "affiliates-buddypress-page" ] );
 			}
 		}
-	
+
 		if ($alert != "") {
 			$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">' . $alert . '</div>';
 		}
-		
+
 		$output .= '<div class="wrap" style="border: 1px solid #ccc; padding:10px;">';
 		$output .= '<form method="post" action="">';
 		$output .= '<table class="form-table">';
 		$output .= '<tr valign="top">';
 		$output .= '<th scope="row"><strong>' . __( 'Select your Affiliate Area page:', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
-		
+
 		$post_ids = array();
 		$posts = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_content LIKE '%[affiliates\_%' AND post_status = 'publish'" );
 
@@ -192,9 +195,9 @@ class AffiliatesBuddypress_Plugin {
 		$output .= '</form>';
 		$output .= '</div>';
 		$output .= '</div>';
-		
+
 		echo $output;
 	}
 
 }
-AffiliatesBuddypress_Plugin::init();
+Affiliates_BuddyPress_Plugin::init();

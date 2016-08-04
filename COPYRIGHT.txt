@@ -1,5 +1,5 @@
 
- The Affiliates Buddypress Wordpress Plugin
+ The Affiliates BuddyPress Wordpress Plugin
  
  Copyright 2010 - 2016 "kento" (Karim Rahimpur) www.itthinx.com
  

@@ -20,9 +20,9 @@
  */
 
 /**
- * AffiliatesBuddypress class
+ * AffiliatesBuddyPress class
  */
-class AffiliatesBuddypress {
+class AffiliatesBuddyPress {
 
 	public static function init() {
 		add_action( 'bp_setup_nav', array( __CLASS__, 'bp_setup_nav' ), 100 );
@@ -65,4 +65,4 @@ class AffiliatesBuddypress {
 	}
 
 }
-AffiliatesBuddypress::init();
+AffiliatesBuddyPress::init();
