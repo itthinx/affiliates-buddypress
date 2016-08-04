@@ -149,7 +149,6 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= __( 'BuddyPress Integration', 'affiliates-buddypress' );
 		$output .= '</h1>';
 
-		$alert = '';
 		if ( isset( $_POST['submit'] ) ) {
 			if ( wp_verify_nonce( $_POST['affiliates-buddypress-nonce'], 'save' ) ) { 
 
@@ -158,11 +157,13 @@ class Affiliates_BuddyPress_Plugin {
 					add_option( 'affiliates-buddypress-page', $_POST[ 'affiliates-buddypress-page' ] );
 				}
 
-				if ( $alert != '' ) {
-					$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">';
-					$output .= __( 'Settings saved', 'affiliates-buddypress' );
-					$output .= '</div>';
-				}
+				$position = !empty( $_POST['affiliates-buddypress-page-position'] ) ? intval( $_POST['affiliates-buddypress-page-position'] ) : Affiliates_BuddyPress::NAV_ITEM_POSITION;
+				delete_option( 'affiliates-buddypress-page-position' );
+				add_option( 'affiliates-buddypress-page-position', $position );
+
+				$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">';
+				$output .= __( 'Settings saved', 'affiliates-buddypress' );
+				$output .= '</div>';
 			}
 		}
 
@@ -170,7 +171,7 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '<form method="post" action="">';
 		$output .= '<table class="form-table">';
 		$output .= '<tr valign="top">';
-		$output .= '<th scope="row"><strong>' . __( 'Select your Affiliate Area page:', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<th scope="row"><strong>' . __( 'Page', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
 
 		$post_ids = array();
@@ -209,10 +210,18 @@ class Affiliates_BuddyPress_Plugin {
 		}
 		$output .= '</td>';
 		$output .= '</tr>';
+		$output .= '<tr>';
+		$output .= '<th scope="row"><strong>' . __( 'Position', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<td>';
+		$output .= sprintf(
+			'<input name="affiliates-buddypress-page-position" type="text" value="%d" />',
+			intval( get_option( 'affiliates-buddypress-page-position', Affiliates_BuddyPress::NAV_ITEM_POSITION ) )
+		);
+		$output .= '</td>';
+		$output .= '</tr>';
 		$output .= '</table>';
 
 		$output .= get_submit_button( __( 'Save', 'affiliates-buddypress' ) );
-// 		settings_fields( 'affiliates-buddypress' );
 
 		$output .= wp_nonce_field( 'save', 'affiliates-buddypress-nonce', true, false );
 
