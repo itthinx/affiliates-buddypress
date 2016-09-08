@@ -1,4 +1,7 @@
 == Affiliates BuddyPress - Changelog ==
 
+= 1.0.1 =
+* Fixed stylesheet URL.
+
 = 1.0.0 =
 * Initial release.

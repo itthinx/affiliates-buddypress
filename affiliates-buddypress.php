@@ -23,7 +23,7 @@
  * Plugin Name: Affiliates BuddyPress
  * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
  * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: itthinx
  * Author URI: http://www.itthinx.com
  * Donate-Link: http://www.itthinx.com
@@ -107,7 +107,7 @@ class Affiliates_BuddyPress_Plugin {
 	 * Load scripts.
 	 */
 	public static function enqueue_scripts() {
-		wp_register_style( 'affbp-admin-styles', AFFILIATES_BUDDYPRESS_PLUGIN_URL . 'css/admin-styles.css' );
+		wp_register_style( 'affbp-admin-styles', AFFILIATES_BUDDYPRESS_PLUGIN_URL . '/css/admin-styles.css' );
 		wp_enqueue_style( 'affbp-admin-styles' );
 	}
 
