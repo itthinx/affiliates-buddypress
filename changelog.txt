@@ -1,5 +1,8 @@
 == Affiliates BuddyPress - Changelog ==
 
+= 1.0.2 =
+* WordPress 4.9 compatible.
+
 = 1.0.1 =
 * Fixed stylesheet URL.
 

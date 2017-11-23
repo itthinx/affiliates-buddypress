@@ -3,8 +3,9 @@ Contributors: itthinx, proaktion, eggemplo
 Donate link: http://www.itthinx.com/plugins/affiliates-buddypress
 Tags: affiliates, itthinx, buddypress, profile
 Requires at least: 4.0.0
-Tested up to: 4.6
-Stable tag: 1.0.1
+Tested up to: 4.9
+Requires PHP: 5.5.0
+Stable tag: 1.0.2
 License: GPLv3
 
 Affiliates integration with BuddyPress.
@@ -44,6 +45,9 @@ Please refer to the [Settings > Pages](http://docs.itthinx.com/document/affiliat
 
 == Changelog ==
 
+= 1.0.2 =
+* WordPress 4.9 compatible.
+
 = 1.0.1 =
 * Fixed stylesheet URL.
 
@@ -52,5 +56,4 @@ Please refer to the [Settings > Pages](http://docs.itthinx.com/document/affiliat
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-* This release fixes an issue with the URL of the admin stylesheet.
+WordPress 4.9 compatible.
