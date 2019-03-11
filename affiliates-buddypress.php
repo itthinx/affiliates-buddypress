@@ -2,7 +2,7 @@
 /**
  * affiliates-buddypress.php
  *
- * Copyright (c) 2016 - 2017 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 - 2019 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -23,10 +23,10 @@
  * Plugin Name: Affiliates BuddyPress
  * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
  * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
- * Version: 1.0.2
+ * Version: 1.1.0
  * Author: itthinx
  * Author URI: http://www.itthinx.com
- * Donate-Link: http://www.itthinx.com
+ * Donate-Link: http://www.itthinx.com/shop/
  * Text Domain: affiliates-buddypress
  * Domain Path: /languages
  * License: GPLv3
@@ -36,6 +36,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.1.0' );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugins_url( 'affiliates-buddypress' ) );
@@ -61,7 +62,8 @@ class Affiliates_BuddyPress_Plugin {
 		add_action( 'init', array( __CLASS__, 'wp_init' ) );
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 
-		add_action( 'admin_head', array( __CLASS__, 'enqueue_scripts' ) );
+		// Our admin stylesheet is currently empty, so skip this.
+		// add_action( 'admin_head', array( __CLASS__, 'enqueue_scripts' ) );
 
 	}
 
@@ -104,11 +106,10 @@ class Affiliates_BuddyPress_Plugin {
 	}
 
 	/**
-	 * Load scripts.
+	 * Load scripts ... currently not used.
 	 */
 	public static function enqueue_scripts() {
-		wp_register_style( 'affbp-admin-styles', AFFILIATES_BUDDYPRESS_PLUGIN_URL . '/css/admin-styles.css' );
-		wp_enqueue_style( 'affbp-admin-styles' );
+		wp_register_style( 'affbp-admin-styles', AFFILIATES_BUDDYPRESS_PLUGIN_URL . '/css/admin-styles.css', array(), AFFILIATES_BUDDYPRESS_VERSION );
 	}
 
 	/**
@@ -202,7 +203,7 @@ class Affiliates_BuddyPress_Plugin {
 			$output .= __( 'The page that provides the content for the Affiliates BuddyPress profile section.', 'affiliates-buddypress' );
 			$output .= ' ';
 			$output .= '<select name="affiliates-buddypress-page">';
-			$post_select_options = '<option value="">--</option>';
+			$post_select_options = '<option value="">&mdash;</option>';
 			foreach( $post_ids as $post_id ) {
 				$selected = '';
 				if ( $post_id == $selected_page_id ) {
