@@ -43,7 +43,15 @@ class Affiliates_BuddyPress {
 		$page_id = get_option( 'affiliates-buddypress-page', null );
 		if ( $page_id ) {
 			add_action( 'bp_setup_nav', array( __CLASS__, 'bp_setup_nav' ), 100 );
+			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wp_enqueue_scripts' ) );
 		}
+	}
+
+	/**
+	 * Registers our front end styles.
+	 */
+	public static function wp_enqueue_scripts() {
+		wp_register_style( 'affiliates-buddypress', AFFILIATES_BUDDYPRESS_PLUGIN_URL . '/css/affiliates-buddypress.css', array(), AFFILIATES_BUDDYPRESS_VERSION );
 	}
 
 	/**
@@ -95,6 +103,7 @@ class Affiliates_BuddyPress {
 	public static function bp_template_content() {
 		$page_id = get_option( 'affiliates-buddypress-page', null );
 		if ( $page_id ) {
+			wp_enqueue_style( 'affiliates-buddypress' );
 			$post = get_post( $page_id );
 			echo $post->post_content;
 		}
