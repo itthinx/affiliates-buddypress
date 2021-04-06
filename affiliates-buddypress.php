@@ -2,7 +2,7 @@
 /**
  * affiliates-buddypress.php
  *
- * Copyright (c) 2016 - 2019 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 - 2021 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -23,7 +23,7 @@
  * Plugin Name: Affiliates BuddyPress
  * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
  * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: itthinx
  * Author URI: http://www.itthinx.com
  * Donate-Link: http://www.itthinx.com/shop/
@@ -36,7 +36,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.2.0' );
+define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.2.1' );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugins_url( 'affiliates-buddypress' ) );
@@ -127,14 +127,16 @@ class Affiliates_BuddyPress_Plugin {
 	 * Adds the admin section.
 	 */
 	public static function admin_menu() {
-		$admin_page = add_submenu_page(
-			'affiliates-admin',
-			__( 'BuddyPress', 'affiliates-buddypress' ),
-			__( 'BuddyPress', 'affiliates-buddypress' ),
-			AFFILIATES_ADMINISTER_AFFILIATES,
-			'affiliates-admin-buddypress',
-			array( __CLASS__, 'buddypress_admin_page' )
-		);
+		if ( defined( 'AFFILIATES_ADMINISTER_AFFILIATES' ) ) {
+			$admin_page = add_submenu_page(
+				'affiliates-admin',
+				__( 'BuddyPress', 'affiliates-buddypress' ),
+				__( 'BuddyPress', 'affiliates-buddypress' ),
+				AFFILIATES_ADMINISTER_AFFILIATES,
+				'affiliates-admin-buddypress',
+				array( __CLASS__, 'buddypress_admin_page' )
+			);
+		}
 	}
 
 	public static function buddypress_admin_page () {

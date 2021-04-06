@@ -1,5 +1,8 @@
 == Affiliates BuddyPress - Changelog ==
 
+= 1.2.1 =
+* Fixed a fatal error when no Affiliates plugin is active.
+
 = 1.2.0 =
 * WordPress 5.7 compatible.
 
