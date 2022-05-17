@@ -1,8 +1,8 @@
 === Affiliates BuddyPress ===
 Contributors: itthinx, proaktion, eggemplo
-Donate link: http://www.itthinx.com/plugins/affiliates-buddypress
+Donate link: https://www.itthinx.com/shop/
 Tags: affiliates, itthinx, buddypress, profile
-Requires at least: 4.0.0
+Requires at least: 5.6.0
 Tested up to: 6.0
 Requires PHP: 5.6.0
 Stable tag: 1.3.0
@@ -18,7 +18,7 @@ You would use this plugin to display the page content of a specific page intende
 
 Setup is pretty straight-forward: You need to have BuddyPress installed and the Affiliates plugin. Go to Affiliates > BuddyPress and select the page that should provide the content to be shown to affiliates or potential affiliates in the user profile section.
 The plugin will add a new entry to the BuddyPress profile menu where the content of the selected page is embedded. It's recommended to generate the default affiliate area and use that page, this generic affiliate area is sufficient for many deployments.
-Please refer to the [Pages](http://docs.itthinx.com/document/affiliates/setup/settings/pages/) section in the documentation of the Affiliates plugin for details.
+Please refer to the [Pages](https://docs.itthinx.com/document/affiliates/setup/settings/pages/) section in the documentation of the Affiliates plugin for details.
 Then go to Affiliates > BuddyPress and select the page in the dropdown provided there and hit the Save button. Now visit the front end user profile pages provided by BuddyPress and you should see there is a new entry named after the title of the selected page.
 If you have chosen to use the default affiliate area, then this allows non-affiliates to join the affiliate program. Those that have already signed up, will see their affiliate resources and stats there.
 
@@ -35,7 +35,7 @@ If you have chosen to use the default affiliate area, then this allows non-affil
 = I don't know which page I should choose. What if I haven't set up an affiliate area yet? =
 
 You can create your Affiliate Area pages using the Affiliates shortcodes and/or using the generation page system from Affiliates > Settings.
-Please refer to the [Settings > Pages](http://docs.itthinx.com/document/affiliates/setup/settings/pages/) section in the documentation for details.
+Please refer to the [Settings > Pages](https://docs.itthinx.com/document/affiliates/setup/settings/pages/) section in the documentation for details.
 
 == Screenshots ==
 

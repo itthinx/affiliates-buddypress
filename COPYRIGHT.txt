@@ -1,7 +1,7 @@
 
  The Affiliates BuddyPress Wordpress Plugin
  
- Copyright 2016 - 2021 "kento" (Karim Rahimpur) www.itthinx.com
+ Copyright 2016 - 2022 "kento" (Karim Rahimpur) www.itthinx.com
  
  The files COPYRIGHT.txt and LICENSE.txt as well as ALL NOTICES IN THE
  HEADERS OF ALL FILES MUST BE KEPT INTACT.
@@ -25,8 +25,8 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- 
- Visit http://www.itthinx.com/ for help, general info and fun.
- 
- Plugin page: http://www.itthinx.com/plugins/affiliates-buddypress
+
+
+ Visit https://www.itthinx.com/ for help, general info and fun.
+
+ Plugin page: https://www.itthinx.com/plugins/affiliates-buddypress/
