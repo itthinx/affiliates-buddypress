@@ -2,7 +2,7 @@
 /**
  * affiliates-buddypress.php
  *
- * Copyright (c) 2016 - 2021 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 - 2022 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -21,12 +21,12 @@
  * @since affiliates-buddypress 1.0.0
  *
  * Plugin Name: Affiliates BuddyPress
- * Plugin URI: http://www.itthinx.com/plugins/affiliates-buddypress
+ * Plugin URI: https://www.itthinx.com/plugins/affiliates-buddypress/
  * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
- * Version: 1.2.1
+ * Version: 1.3.0
  * Author: itthinx
- * Author URI: http://www.itthinx.com
- * Donate-Link: http://www.itthinx.com/shop/
+ * Author URI: https://www.itthinx.com
+ * Donate-Link: https://www.itthinx.com/shop/
  * Text Domain: affiliates-buddypress
  * Domain Path: /languages
  * License: GPLv3
@@ -36,7 +36,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.2.1' );
+define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.3.0' );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugins_url( 'affiliates-buddypress' ) );
@@ -90,7 +90,12 @@ class Affiliates_BuddyPress_Plugin {
 		if ( !$affiliates_is_active ) {
 			self::$notices[] =
 			'<div class="error">' .
-			__( 'The <strong>Affiliates BuddyPress Integration</strong> plugin requires an appropriate Affiliates plugin: <a href="http://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>, <a href="http://www.itthinx.com/plugins/affiliates-pro" target="_blank">Affiliates Pro</a> or <a href="http://www.itthinx.com/plugins/affiliates-enterprise" target="_blank">Affiliates Enterprise</a>.', 'affiliates-buddypress' ) .
+			sprintf(
+				esc_html__( 'The Affiliates BuddyPress integration plugin requires an appropriate Affiliates plugin: %s, %s or %s.', 'affiliates-buddypress' ),
+				'<a href="https://www.itthinx.com/plugins/affiliates" target="_blank">Affiliates</a>',
+				'<a href="https://www.itthinx.com/shop/affiliates-pro/" target="_blank">Affiliates Pro</a>',
+				'<a href="https://www.itthinx.com/shop/affiliates-enterprise/" target="_blank">Affiliates Enterprise</a>'
+			) .
 			'</div>';
 		}
 		if ( !$affiliates_is_active ) {
@@ -130,8 +135,8 @@ class Affiliates_BuddyPress_Plugin {
 		if ( defined( 'AFFILIATES_ADMINISTER_AFFILIATES' ) ) {
 			$admin_page = add_submenu_page(
 				'affiliates-admin',
-				__( 'BuddyPress', 'affiliates-buddypress' ),
-				__( 'BuddyPress', 'affiliates-buddypress' ),
+				esc_html__( 'BuddyPress', 'affiliates-buddypress' ),
+				esc_html__( 'BuddyPress', 'affiliates-buddypress' ),
 				AFFILIATES_ADMINISTER_AFFILIATES,
 				'affiliates-admin-buddypress',
 				array( __CLASS__, 'buddypress_admin_page' )
@@ -143,21 +148,21 @@ class Affiliates_BuddyPress_Plugin {
 		global $wpdb;
 
 		if ( !current_user_can( AFFILIATES_ADMINISTER_AFFILIATES ) ) {
-			wp_die( __( 'Access denied.', 'affiliates' ) );
+			wp_die( esc_html__( 'Access denied.', 'affiliates' ) );
 		}
 
 		$output = '';
 		$output .= '<div class="wrap">';
 		$output .= '<h1>';
-		$output .= __( 'BuddyPress Integration', 'affiliates-buddypress' );
+		$output .= esc_html__( 'BuddyPress Integration', 'affiliates-buddypress' );
 		$output .= '</h1>';
 
 		$output .= '<p class="description">';
-		$output .= __( 'Here you can select the page that should be displayed in the BuddyPress user profiles under an additional <em>Affiliates</em> section.', 'affiliates-buddypress' );
+		$output .= esc_html__( 'Here you can select the page that should be displayed in the BuddyPress user profiles under an additional Affiliates section.', 'affiliates-buddypress' );
 		$output .= ' ';
-		$output .= __( 'If you have already generated an affiliate area, you can choose that page.', 'affiliates-buddypress' );
+		$output .= esc_html__( 'If you have already generated an affiliate area, you can choose that page.', 'affiliates-buddypress' );
 		$output .= ' ';
-		$output .= __( 'Alternatively, you can use any customized page that is using at least one <em>Affiliates</em> shortcode.', 'affiliates-buddypress' );
+		$output .= esc_html__( 'Alternatively, you can use any customized page that is using at least one Affiliates shortcode or block.', 'affiliates-buddypress' );
 		$output .= '</p>';
 
 		if ( isset( $_POST['submit'] ) ) {
@@ -172,8 +177,12 @@ class Affiliates_BuddyPress_Plugin {
 				delete_option( 'affiliates-buddypress-page-position' );
 				add_option( 'affiliates-buddypress-page-position', $position );
 
+				$all_pages = !empty( $_POST['affiliates-buddypress-all-pages'] );
+				delete_option( 'affiliates-buddypress-all-pages' );
+				add_option( 'affiliates-buddypress-all-pages', $all_pages );
+
 				$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">';
-				$output .= __( 'Settings saved', 'affiliates-buddypress' );
+				$output .= esc_html__( 'Settings saved', 'affiliates-buddypress' );
 				$output .= '</div>';
 			}
 		}
@@ -182,27 +191,29 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '<form method="post" action="">';
 		$output .= '<table class="form-table">';
 		$output .= '<tr valign="top">';
-		$output .= '<th scope="row"><strong>' . __( 'Page', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<th scope="row"><strong>' . esc_html__( 'Page', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
 
-		$post_ids = array();
-		$posts = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_content LIKE '%[affiliates\_%' AND post_status = 'publish'" );
+		$get_posts_args = array( 'fields' => 'ids', 'post_type' => 'page', 'orderby' => 'name', 'order' => 'ASC', 'posts_per_page' => -1 );
+		$all_pages = get_option( 'affiliates-buddypress-all-pages', false );
+		if ( !$all_pages ) {
+			$post_ids = $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE post_content LIKE '%[affiliates\_%' OR post_content LIKE '%<!-- wp:affiliates/%' AND post_status = 'publish'" );
+			$get_posts_args['post__in'] = $post_ids;
+		}
+		$post_ids = get_posts( apply_filters( 'affiliates_buddypress_select_post_ids_args', $get_posts_args ) );
 
-		if ( count( $posts ) == 0 ) {
+		if ( count( $post_ids ) == 0 ) {
 			$output .= '<p>';
-			$output .= __( 'It seems that you do not have any pages set up for your affiliates yet.', 'affiliates-buddypress' );
+			$output .= esc_html__( 'It seems that you do not have any pages set up for your affiliates yet.', 'affiliates-buddypress' );
 			$output .= '</p>';
 			$output .= '<p>';
-			$output .= __( 'You can use the page generation option to create the default affiliate area for your affiliates.', 'affiliates-buddypress' );
+			$output .= esc_html__( 'You can use the page generation option to create the default affiliate area for your affiliates.', 'affiliates-buddypress' );
 			$output .= '</p>';
 		} else {
-			foreach( $posts as $post ) {
-				$post_ids[] = $post->ID;
-			}
 			$selected_page_id = get_option( 'affiliates-buddypress-page', null );
 
 			$output .= '<label>';
-			$output .= __( 'The page that provides the content for the Affiliates BuddyPress profile section.', 'affiliates-buddypress' );
+			$output .= esc_html__( 'The page that provides the content for the Affiliates BuddyPress profile section.', 'affiliates-buddypress' );
 			$output .= ' ';
 			$output .= '<select name="affiliates-buddypress-page">';
 			$post_select_options = '<option value="">&mdash;</option>';
@@ -213,10 +224,11 @@ class Affiliates_BuddyPress_Plugin {
 				}
 				$post_title = get_the_title( $post_id );
 				$post_select_options .= sprintf(
-					'<option value="%d" %s >%s</option>',
+					'<option value="%d" %s >%s [#%d]</option>',
 					intval( $post_id ),
 					$selected,
-					esc_html( $post_title )
+					esc_html( $post_title ),
+					intval( $post_id )
 				);
 			}
 			$output .= $post_select_options;
@@ -225,11 +237,12 @@ class Affiliates_BuddyPress_Plugin {
 		}
 		$output .= '</td>';
 		$output .= '</tr>';
+
 		$output .= '<tr>';
-		$output .= '<th scope="row"><strong>' . __( 'Position', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<th scope="row"><strong>' . esc_html__( 'Position', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
 		$output .= '<label>';
-		$output .= __( 'Profile item position', 'affiliates-buddypress' );
+		$output .= esc_html__( 'Profile item position', 'affiliates-buddypress' );
 		$output .= ' ';
 		$output .= sprintf(
 			'<input name="affiliates-buddypress-page-position" type="text" value="%d" />',
@@ -238,6 +251,21 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '</label>';
 		$output .= '</td>';
 		$output .= '</tr>';
+
+		$output .= '<tr>';
+		$output .= '<th scope="row"><strong>' . esc_html__( 'Pages', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<td>';
+		$output .= sprintf( '<label title="%s">', esc_attr__( 'Extend the page selection offered to include all pages instead of only those deemed to contain shortcodes or blocks related to Affiliates.', 'affiliates-buddypress' ) );
+		$output .= sprintf(
+			'<input name="affiliates-buddypress-all-pages" type="checkbox" value="1" %s/>',
+			$all_pages ? 'checked' : ''
+		);
+		$output .= ' ';
+		$output .= esc_html__( 'Offer all pages', 'affiliates-buddypress' );
+		$output .= '</label>';
+		$output .= '</td>';
+		$output .= '</tr>';
+
 		$output .= '</table>';
 
 		$output .= get_submit_button( __( 'Save', 'affiliates-buddypress' ) );
