@@ -162,7 +162,7 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= ' ';
 		$output .= esc_html__( 'If you have already generated an affiliate area, you can choose that page.', 'affiliates-buddypress' );
 		$output .= ' ';
-		$output .= esc_html__( 'Alternatively, you can use any customized page that is using at least one Affiliates shortcode.', 'affiliates-buddypress' );
+		$output .= esc_html__( 'Alternatively, you can use any customized page that is using at least one Affiliates shortcode or block.', 'affiliates-buddypress' );
 		$output .= '</p>';
 
 		if ( isset( $_POST['submit'] ) ) {
@@ -177,6 +177,10 @@ class Affiliates_BuddyPress_Plugin {
 				delete_option( 'affiliates-buddypress-page-position' );
 				add_option( 'affiliates-buddypress-page-position', $position );
 
+				$all_pages = !empty( $_POST['affiliates-buddypress-all-pages'] );
+				delete_option( 'affiliates-buddypress-all-pages' );
+				add_option( 'affiliates-buddypress-all-pages', $all_pages );
+
 				$output .= '<div style="background-color: #ffffe0;border: 1px solid #993;padding: 1em;margin-right: 1em;">';
 				$output .= esc_html__( 'Settings saved', 'affiliates-buddypress' );
 				$output .= '</div>';
@@ -190,10 +194,15 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '<th scope="row"><strong>' . esc_html__( 'Page', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
 
-		$post_ids = array();
-		$posts = $wpdb->get_results( "SELECT ID FROM $wpdb->posts WHERE post_content LIKE '%[affiliates\_%' AND post_status = 'publish'" );
+		$get_posts_args = array( 'fields' => 'ids', 'post_type' => 'page', 'orderby' => 'name', 'order' => 'ASC', 'posts_per_page' => -1 );
+		$all_pages = get_option( 'affiliates-buddypress-all-pages', false );
+		if ( !$all_pages ) {
+			$post_ids = $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE post_content LIKE '%[affiliates\_%' OR post_content LIKE '%<!-- wp:affiliates/%' AND post_status = 'publish'" );
+			$get_posts_args['post__in'] = $post_ids;
+		}
+		$post_ids = get_posts( apply_filters( 'affiliates_buddypress_select_post_ids_args', $get_posts_args ) );
 
-		if ( count( $posts ) == 0 ) {
+		if ( count( $post_ids ) == 0 ) {
 			$output .= '<p>';
 			$output .= esc_html__( 'It seems that you do not have any pages set up for your affiliates yet.', 'affiliates-buddypress' );
 			$output .= '</p>';
@@ -201,9 +210,6 @@ class Affiliates_BuddyPress_Plugin {
 			$output .= esc_html__( 'You can use the page generation option to create the default affiliate area for your affiliates.', 'affiliates-buddypress' );
 			$output .= '</p>';
 		} else {
-			foreach( $posts as $post ) {
-				$post_ids[] = $post->ID;
-			}
 			$selected_page_id = get_option( 'affiliates-buddypress-page', null );
 
 			$output .= '<label>';
@@ -218,10 +224,11 @@ class Affiliates_BuddyPress_Plugin {
 				}
 				$post_title = get_the_title( $post_id );
 				$post_select_options .= sprintf(
-					'<option value="%d" %s >%s</option>',
+					'<option value="%d" %s >%s [#%d]</option>',
 					intval( $post_id ),
 					$selected,
-					esc_html( $post_title )
+					esc_html( $post_title ),
+					intval( $post_id )
 				);
 			}
 			$output .= $post_select_options;
@@ -230,6 +237,7 @@ class Affiliates_BuddyPress_Plugin {
 		}
 		$output .= '</td>';
 		$output .= '</tr>';
+
 		$output .= '<tr>';
 		$output .= '<th scope="row"><strong>' . esc_html__( 'Position', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
@@ -243,6 +251,21 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '</label>';
 		$output .= '</td>';
 		$output .= '</tr>';
+
+		$output .= '<tr>';
+		$output .= '<th scope="row"><strong>' . esc_html__( 'Pages', 'affiliates-buddypress' ) . '</strong></th>';
+		$output .= '<td>';
+		$output .= sprintf( '<label title="%s">', esc_attr__( 'Extend the page selection offered to include all pages instead of only those deemed to contain shortcodes or blocks related to Affiliates.', 'affiliates-buddypress' ) );
+		$output .= esc_html__( 'Offer all pages', 'affiliates-buddypress' );
+		$output .= ' ';
+		$output .= sprintf(
+			'<input name="affiliates-buddypress-all-pages" type="checkbox" value="1" %s/>',
+			$all_pages ? 'checked' : ''
+		);
+		$output .= '</label>';
+		$output .= '</td>';
+		$output .= '</tr>';
+
 		$output .= '</table>';
 
 		$output .= get_submit_button( __( 'Save', 'affiliates-buddypress' ) );

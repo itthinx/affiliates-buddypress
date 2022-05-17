@@ -7,6 +7,10 @@
 * Added missing output escaping on translated strings.
 * Updated the translation template.
 * Updated included translations.
+* Now also showing the post ID in the post selection dropbox along with the title.
+* Added the affiliates_buddypress_select_post_ids_args filter.
+* The offered page selection now includes pages deemed to contain Affiliates blocks.
+* Added an option to offer all pages instead of only those deemed to contain Affiliates blocks or shortcodes.
 
 = 1.2.1 =
 * Fixed a fatal error when no Affiliates plugin is active.

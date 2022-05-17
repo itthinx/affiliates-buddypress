@@ -7,7 +7,7 @@
 msgid   ""
 msgstr  "Project-Id-Version: PACKAGE VERSION\n"
         "Report-Msgid-Bugs-To: \n"
-        "POT-Creation-Date: 2022-05-17 15:07+0200\n"
+        "POT-Creation-Date: 2022-05-17 16:06+0200\n"
         "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
         "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
         "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr  ""
 
 #: affiliates-buddypress.php:165
 msgid   "Alternatively, you can use any customized page that is using at "
-        "least one Affiliates shortcode."
+        "least one Affiliates shortcode or block."
 msgstr  ""
 
 #: affiliates-buddypress.php:138 affiliates-buddypress.php:139
@@ -31,6 +31,12 @@ msgstr  ""
 
 #: affiliates-buddypress.php:157
 msgid   "BuddyPress Integration"
+msgstr  ""
+
+#: affiliates-buddypress.php:258
+msgid   "Extend the page selection offered to include all pages instead of "
+        "only those deemed to contain shortcodes or blocks related to "
+        "Affiliates."
 msgstr  ""
 
 #: affiliates-buddypress.php:161
@@ -43,28 +49,36 @@ msgid   "If you have already generated an affiliate area, you can choose that "
         "page."
 msgstr  ""
 
-#: affiliates-buddypress.php:198
+#: affiliates-buddypress.php:207
 msgid   "It seems that you do not have any pages set up for your affiliates "
         "yet."
 msgstr  ""
 
-#: affiliates-buddypress.php:190
+#: affiliates-buddypress.php:259
+msgid   "Offer all pages"
+msgstr  ""
+
+#: affiliates-buddypress.php:194
 msgid   "Page"
 msgstr  ""
 
-#: affiliates-buddypress.php:234
+#: affiliates-buddypress.php:256
+msgid   "Pages"
+msgstr  ""
+
+#: affiliates-buddypress.php:242
 msgid   "Position"
 msgstr  ""
 
-#: affiliates-buddypress.php:237
+#: affiliates-buddypress.php:245
 msgid   "Profile item position"
 msgstr  ""
 
-#: affiliates-buddypress.php:248
+#: affiliates-buddypress.php:271
 msgid   "Save"
 msgstr  ""
 
-#: affiliates-buddypress.php:181
+#: affiliates-buddypress.php:185
 msgid   "Settings saved"
 msgstr  ""
 
@@ -74,12 +88,12 @@ msgid   "The Affiliates BuddyPress integration plugin requires an appropriate "
         "Affiliates plugin: %s, %s or %s."
 msgstr  ""
 
-#: affiliates-buddypress.php:210
+#: affiliates-buddypress.php:216
 msgid   "The page that provides the content for the Affiliates BuddyPress "
         "profile section."
 msgstr  ""
 
-#: affiliates-buddypress.php:201
+#: affiliates-buddypress.php:210
 msgid   "You can use the page generation option to create the default "
         "affiliate area for your affiliates."
 msgstr  ""

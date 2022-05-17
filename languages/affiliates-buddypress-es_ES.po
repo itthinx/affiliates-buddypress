@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 15:07+0200\n"
-"PO-Revision-Date: 2022-05-17 15:09+0200\n"
+"POT-Creation-Date: 2022-05-17 16:06+0200\n"
+"PO-Revision-Date: 2022-05-17 16:07+0200\n"
 "Last-Translator: eggemplo <eggemplo@gmail.com>\n"
 "Language-Team: eggemplo <info@eggemplo.com>\n"
 "Language: es_ES\n"
@@ -23,10 +23,10 @@ msgstr "Acceso denegado."
 #: affiliates-buddypress.php:165
 msgid ""
 "Alternatively, you can use any customized page that is using at least one "
-"Affiliates shortcode."
+"Affiliates shortcode or block."
 msgstr ""
 "Como alternativa puede usar cualquier página personalizada que contenga al "
-"menos un shortcode de Affiliates."
+"menos un shortcode o bloque de Affiliates."
 
 #: affiliates-buddypress.php:138 affiliates-buddypress.php:139
 msgid "BuddyPress"
@@ -35,6 +35,15 @@ msgstr "BuddyPress"
 #: affiliates-buddypress.php:157
 msgid "BuddyPress Integration"
 msgstr "BuddyPress Integración"
+
+#: affiliates-buddypress.php:258
+msgid ""
+"Extend the page selection offered to include all pages instead of only those "
+"deemed to contain shortcodes or blocks related to Affiliates."
+msgstr ""
+"Amplía la selección de páginas ofrecidas para incluir todas las páginas, en "
+"lugar de sólo aquellas consideradas de contener shortcodes o bloques "
+"relacionados con Affiliates."
 
 #: affiliates-buddypress.php:161
 msgid ""
@@ -49,27 +58,35 @@ msgid ""
 "If you have already generated an affiliate area, you can choose that page."
 msgstr "Si ya ha generado un área de afiliados, puede seleccionar esta página."
 
-#: affiliates-buddypress.php:198
+#: affiliates-buddypress.php:207
 msgid "It seems that you do not have any pages set up for your affiliates yet."
 msgstr "Parece que aún no tiene configurada ninguna página para sus afiliados."
 
-#: affiliates-buddypress.php:190
+#: affiliates-buddypress.php:259
+msgid "Offer all pages"
+msgstr "Ofrecer todas las páginas"
+
+#: affiliates-buddypress.php:194
 msgid "Page"
 msgstr "Página"
 
-#: affiliates-buddypress.php:234
+#: affiliates-buddypress.php:256
+msgid "Pages"
+msgstr "Páginas"
+
+#: affiliates-buddypress.php:242
 msgid "Position"
 msgstr "Posición"
 
-#: affiliates-buddypress.php:237
+#: affiliates-buddypress.php:245
 msgid "Profile item position"
 msgstr "Posición de ítem de perfil"
 
-#: affiliates-buddypress.php:248
+#: affiliates-buddypress.php:271
 msgid "Save"
 msgstr "Guardar"
 
-#: affiliates-buddypress.php:181
+#: affiliates-buddypress.php:185
 msgid "Settings saved"
 msgstr "Ajustes guardados"
 
@@ -82,7 +99,7 @@ msgstr ""
 "El plugin de integración Affiliates BuddyPress requiere un plugin Affiliates "
 "apropiado: %s, %s o %s."
 
-#: affiliates-buddypress.php:210
+#: affiliates-buddypress.php:216
 msgid ""
 "The page that provides the content for the Affiliates BuddyPress profile "
 "section."
@@ -90,7 +107,7 @@ msgstr ""
 "La página que proporciona el contenido para la sección de perfil creada por "
 "Affiliates BuddyPress."
 
-#: affiliates-buddypress.php:201
+#: affiliates-buddypress.php:210
 msgid ""
 "You can use the page generation option to create the default affiliate area "
 "for your affiliates."
