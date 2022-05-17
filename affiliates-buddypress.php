@@ -256,12 +256,12 @@ class Affiliates_BuddyPress_Plugin {
 		$output .= '<th scope="row"><strong>' . esc_html__( 'Pages', 'affiliates-buddypress' ) . '</strong></th>';
 		$output .= '<td>';
 		$output .= sprintf( '<label title="%s">', esc_attr__( 'Extend the page selection offered to include all pages instead of only those deemed to contain shortcodes or blocks related to Affiliates.', 'affiliates-buddypress' ) );
-		$output .= esc_html__( 'Offer all pages', 'affiliates-buddypress' );
-		$output .= ' ';
 		$output .= sprintf(
 			'<input name="affiliates-buddypress-all-pages" type="checkbox" value="1" %s/>',
 			$all_pages ? 'checked' : ''
 		);
+		$output .= ' ';
+		$output .= esc_html__( 'Offer all pages', 'affiliates-buddypress' );
 		$output .= '</label>';
 		$output .= '</td>';
 		$output .= '</tr>';
