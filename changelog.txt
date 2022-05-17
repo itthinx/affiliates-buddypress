@@ -1,5 +1,8 @@
 == Affiliates BuddyPress - Changelog ==
 
+= 1.3.0 =
+* WordPress 6.0 compatible.
+
 = 1.2.1 =
 * Fixed a fatal error when no Affiliates plugin is active.
 
