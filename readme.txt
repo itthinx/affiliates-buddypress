@@ -3,9 +3,9 @@ Contributors: itthinx, proaktion, eggemplo
 Donate link: https://www.itthinx.com/shop/
 Tags: affiliates, itthinx, buddypress, profile
 Requires at least: 5.6.0
-Tested up to: 6.0
+Tested up to: 6.9
 Requires PHP: 5.6.0
-Stable tag: 1.3.0
+Stable tag: 2.0.0
 License: GPLv3
 
 Affiliates integration with BuddyPress.
