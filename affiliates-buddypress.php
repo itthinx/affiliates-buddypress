@@ -2,7 +2,7 @@
 /**
  * affiliates-buddypress.php
  *
- * Copyright (c) 2016 - 2022 "kento" Karim Rahimpur www.itthinx.com
+ * Copyright (c) 2016 - 2025 "kento" Karim Rahimpur www.itthinx.com
  *
  * This code is released under the GNU General Public License.
  * See COPYRIGHT.txt and LICENSE.txt.
@@ -23,7 +23,7 @@
  * Plugin Name: Affiliates BuddyPress
  * Plugin URI: https://www.itthinx.com/plugins/affiliates-buddypress/
  * Description: Affiliates integration with BuddyPress that allows to display affiliate content in the BuddyPress user profile.
- * Version: 1.3.0
+ * Version: 2.0.0
  * Author: itthinx
  * Author URI: https://www.itthinx.com
  * Donate-Link: https://www.itthinx.com/shop/
@@ -36,7 +36,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AFFILIATES_BUDDYPRESS_VERSION', '1.3.0' );
+define( 'AFFILIATES_BUDDYPRESS_VERSION', '2.0.0' );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_NAME', 'affiliates-buddypress' );
 define( 'AFFILIATES_BUDDYPRESS_FILE', __FILE__ );
 define( 'AFFILIATES_BUDDYPRESS_PLUGIN_URL', plugins_url( 'affiliates-buddypress' ) );
